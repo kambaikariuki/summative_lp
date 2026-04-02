@@ -316,3 +316,28 @@ exit
 First call: resolved via dynamic linker
 Address stored in GOT
 Subsequent calls: direct jump via GOT
+
+
+## Question 2
+
+Reads `temperature_data.txt`, counts:
+ 1. Total lines (including empty ones)
+ 2. Non-empty lines (valid readings)
+
+Handles both LF (\n) and CRLF (\r\n)
+Includes error handling
+
+**Assemble:**
+   `nasm -f elf64 temperature.asm`
+ Link:
+   `ld -o temperature temperature.o`
+ Run:
+ `./temperature`
+
+**Output:**
+```
+Total readings: 61
+Valid readings: 44
+```
+
+
