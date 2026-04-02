@@ -340,4 +340,164 @@ Total readings: 61
 Valid readings: 44
 ```
 
+## Question 3
 
+A custom C extension module for Python that performs efficient statistical and signal analysis on vibration readings.
+
+#### Setup
+
+Clone the repo and create a virtual environment using:
+  `python3 -m venv venv`
+
+Activate the virtual environment:
+  `source venv/bin/activate`
+
+To install the required packages from `requirements.txt` run:
+  `python3 -m install -r requirements.txt`
+
+You can now build the C extension module using:
+```
+  python3 setup build
+  python3 setup install
+```
+
+Finally, you can run the python file with the imported C extension module with:
+  `python3 test_vibration.py`
+
+
+### Question 4: Airport Baggage Handling System using multithreading in C (POSIX threads).
+
+The system consists of:
+
+**Conveyor Belt Loader (Producer Thread)**
+
+Continuously loads luggage onto a shared conveyor buffer.
+
+Takes 2 seconds to load one luggage item.
+
+Each luggage item has a unique ID number (incremental).
+
+The conveyor belt has a maximum capacity of 5 items.
+
+If the belt is full, the loader must wait until space becomes available.
+
+Automatically resumes loading when space is available.
+
+**Aircraft Loader (Consumer Thread)**
+
+Continuously removes luggage from the conveyor belt and loads it onto the aircraft.
+
+Takes 4 seconds to load one luggage item into the aircraft.
+
+If the conveyor belt is empty, the aircraft loader must wait until luggage is available.
+
+
+**Compilation:**
+
+  `gcc baggage_system.c -o baggage -pthread`
+
+Run the executable:
+  `./baggage`
+
+
+**Console output:**
+```
+[MONITOR REPORT]
+Total Loaded: 4
+Total Dispatched: 2
+Current Belt Size: 2
+
+Loaded luggage ID 5 | Belt size: 3
+Dispatched luggage ID 3 | Belt size: 2
+Loaded luggage ID 6 | Belt size: 3
+Loaded luggage ID 7 | Belt size: 4
+
+[MONITOR REPORT]
+Total Loaded: 7
+Total Dispatched: 3
+Current Belt Size: 4
+
+Dispatched luggage ID 4 | Belt size: 3
+Loaded luggage ID 8 | Belt size: 4
+Loaded luggage ID 9 | Belt size: 5
+```
+
+
+### Question 5: A Real-Time Client-Server System
+
+The system simulates a Digital Library Reservation Platform where multiple users connect to a central server to authenticate, view available books, reserve a book, and receive confirmation. This project models a realistic distributed system involving authentication, shared resource control, concurrent clients, and synchronized access to shared data.
+
+**Compilation:**
+
+Client side:
+  `gcc client.c -o client`
+
+Server application:
+  `gcc server.c -o server -pthread`
+
+**Console output:**
+
+Authentication:
+```
+Enter Library ID: 1002
+Authenticated successfully
+Available books:
+0. Book_A [AVAILABLE]
+1. Book_B [AVAILABLE]
+2. Book_C [AVAILABLE]
+3. Book_D [AVAILABLE]
+4. Book_E [AVAILABLE]
+
+Enter book number to reserve:
+```
+
+Server side:
+```
+--- SERVER STATUS ---
+Active users:
+ - 1002
+Books:
+ Book_A : AVAILABLE
+ Book_B : AVAILABLE
+ Book_C : AVAILABLE
+ Book_D : AVAILABLE
+ Book_E : AVAILABLE
+----------------------
+```
+
+Successful reservation of book:
+```
+User 1002 reserved Book_A
+
+--- SERVER STATUS ---
+Active users:
+Books:
+ Book_A : RESERVED
+ Book_B : AVAILABLE
+ Book_C : AVAILABLE
+ Book_D : AVAILABLE
+ Book_E : AVAILABLE
+----------------------
+Server: RESERVED
+Session closed. Goodbye, 1002
+```
+```
+```
+
+Active user tracking:
+```
+--- SERVER STATUS ---
+Active users:
+ - 1001
+ - 1002
+ - 1005
+ - 1004
+ - 1003
+Books:
+ Book_A : RESERVED
+ Book_B : AVAILABLE
+ Book_C : AVAILABLE
+ Book_D : AVAILABLE
+ Book_E : AVAILABLE
+----------------------
+```
