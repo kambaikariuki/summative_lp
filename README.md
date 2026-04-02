@@ -306,15 +306,22 @@ exit
 ```
 
 **Function interaction**
+
 `main` allocates memory
+
 `init_array` fills array
+
 `process_array` computes sum
+
 `print_result` outputs result
 
 **PLT/GOT Observations**
 `printf` and `malloc` use PLT
+
 First call: resolved via dynamic linker
+
 Address stored in GOT
+
 Subsequent calls: direct jump via GOT
 
 

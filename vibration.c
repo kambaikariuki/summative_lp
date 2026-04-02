@@ -1,8 +1,3 @@
-// ==========================================
-// vibration.c
-// Python C Extension for vibration analysis
-// ==========================================
-
 #define PY_SSIZE_T_CLEAN
 #include <Python.h>
 #include <math.h>
