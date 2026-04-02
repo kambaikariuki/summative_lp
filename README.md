@@ -318,6 +318,7 @@ Address stored in GOT
 Subsequent calls: direct jump via GOT
 
 
+
 ## Question 2
 
 Reads `temperature_data.txt`, counts:
@@ -339,6 +340,8 @@ Includes error handling
 Total readings: 61
 Valid readings: 44
 ```
+
+
 
 ## Question 3
 
@@ -365,7 +368,8 @@ Finally, you can run the python file with the imported C extension module with:
   `python3 test_vibration.py`
 
 
-### Question 4: Airport Baggage Handling System using multithreading in C (POSIX threads).
+
+## Question 4: Airport Baggage Handling System using multithreading in C (POSIX threads).
 
 The system consists of:
 
@@ -423,7 +427,8 @@ Loaded luggage ID 9 | Belt size: 5
 ```
 
 
-### Question 5: A Real-Time Client-Server System
+
+## Question 5: A Real-Time Client-Server System
 
 The system simulates a Digital Library Reservation Platform where multiple users connect to a central server to authenticate, view available books, reserve a book, and receive confirmation. This project models a realistic distributed system involving authentication, shared resource control, concurrent clients, and synchronized access to shared data.
 
@@ -480,8 +485,6 @@ Books:
 ----------------------
 Server: RESERVED
 Session closed. Goodbye, 1002
-```
-```
 ```
 
 Active user tracking:
